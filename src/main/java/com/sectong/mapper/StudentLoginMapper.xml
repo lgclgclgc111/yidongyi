@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sectong.mapper.StudentLoginMapper">
+	<select id="selectByStudentID" resultType="com.sectong.entity.StudentLogin">
+		select * from
+		v_students
+		where v_students.StudentNumber =
+		#{StudentNumber,jdbcType=INTEGER}
+	</select>
+
+	<select id="StudentqueryAll" resultType="com.sectong.entity.StudentLogin">
+		select * from v_students
+	</select>
+
+	<select id="selectByClassName" resultType="com.sectong.entity.StudentName">
+		SELECT
+		v_students.StudentName
+		FROM
+		v_students
+		WHERE
+		v_students.ClassName = #{0}
+	</select>
+
+	<select id="selectStudentNameByQrcodeInfo" resultType="com.sectong.entity.Attendance">
+		SELECT
+		v_attendance.StudentNumber,
+		v_attendance.StudentName,
+		v_attendance.RecordDateTime
+		FROM
+		v_attendance
+		WHERE
+		v_attendance.QrcodeInfo = #{0}
+	</select>
+
+
+	<!-- <select id="selectByJobIDWeekday" resultType="com.sectong.entity.StudentsLogin"> 
+		SELECT * FROM v_curriculum WHERE v_curriculum.TeacherJobID = #{0} AND v_curriculum.WeekDay 
+		= #{1} </select> <select id="selectByJobIDWeekdaySection" resultType="com.sectong.entity.StudentsLogin"> 
+		SELECT * FROM v_curriculum WHERE v_curriculum.TeacherJobID = #{0} AND v_curriculum.WeekDay 
+		= #{1} AND v_curriculum.Section= #{2} </select> -->
+</mapper>

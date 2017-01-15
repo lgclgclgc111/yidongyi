@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sectong.mapper.TeacherLoginMapper">
+	<select id="selectByJobID" resultType="com.sectong.entity.TeacherLogin">
+		select * from v_curriculum
+		where v_curriculum.TeacherJobID =
+		#{TeacherJobID,jdbcType=INTEGER}
+		order by weekday ,SECTION ASC
+	</select>
+
+	<select id="TeacherqueryAll" resultType="com.sectong.entity.TeacherLogin">
+		select * from
+		v_curriculum
+	</select>
+
+	<select id="selectByJobIDWeekday" resultType="com.sectong.entity.TeacherLogin">
+		SELECT * FROM
+		v_curriculum
+		WHERE
+		v_curriculum.TeacherJobID =
+		#{0} AND
+		v_curriculum.WeekDay =
+		#{1}
+	</select>
+
+	<select id="selectByJobIDWeekdaySection" resultType="com.sectong.entity.TeacherLogin">
+		SELECT *
+		FROM
+		v_curriculum
+		WHERE
+		v_curriculum.TeacherJobID =
+		#{0} AND
+		v_curriculum.WeekDay =
+		#{1} AND
+		v_curriculum.Section=
+		#{2}
+	</select>
+
+	<select id="selectByCurriculumId" resultType="com.sectong.entity.TeacherLogin">
+		SELECT
+		v_curriculum.TeacherName,
+		v_curriculum.WeekDay,
+		v_curriculum.Section,
+		v_curriculum.ClassName,
+		v_curriculum.CourseName,
+		v_curriculum.FacultyName,
+		v_curriculum.StratTime
+		FROM
+		v_curriculum
+		WHERE
+		v_curriculum.CurriculumId = #{0}
+	</select>
+
+
+	<select id="SelectStudentsInClassByCurriculumId"
+		resultType="com.sectong.entity.SelectStudentsInClassByCurriculumId">
+		SELECT DISTINCT
+		v_students_att.StudentName,
+		v_students_att.StudentNumber,
+		v_students_att.ClassName,
+		v_students_att.ClassRoomId,
+		yw_classroom.CurriculumId
+		FROM
+		yw_classroom ,
+		v_students_att
+		WHERE
+		yw_classroom.CurriculumId =
+		v_students_att.CurriculumId AND
+		yw_classroom.CurriculumId = #{0} OR
+		v_students_att.ClassRoomId IS NULL
+	</select>
+</mapper>

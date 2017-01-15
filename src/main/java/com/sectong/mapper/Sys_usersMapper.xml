@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sectong.mapper.Sys_usersMapper">
+	<select id="selectByjobIDorstudentID" resultType="com.sectong.entity.Sys_users">
+		SELECT
+		*
+		FROM
+		sys_users
+		WHERE
+		sys_users.jobIDorstudentID = #{0}
+	</select>
+</mapper>
