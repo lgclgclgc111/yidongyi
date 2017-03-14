@@ -2,38 +2,49 @@ package com.sectong.entity;
 
 public class Sys_users
 {
-	private Integer id;
-	private Integer jobIDorstudentID;
-	private String passward;
+	private String jobIDorstudentID;
+	private String Password;
+	private String name;
+	private String role;
 
-	public Integer getId()
-	{
-		return id;
-	}
-
-	public void setId(Integer id)
-	{
-		this.id = id;
-	}
-
-	public Integer getJobIDorstudentID()
+	public String getJobIDorstudentID()
 	{
 		return jobIDorstudentID;
 	}
 
-	public void setJobIDorstudentID(Integer jobIDorstudentID)
+	public void setJobIDorstudentID(String jobIDorstudentID)
 	{
 		this.jobIDorstudentID = jobIDorstudentID;
 	}
 
-	public String getPassward()
+	public String getPassword()
 	{
-		return passward;
+		return Password;
 	}
 
-	public void setPassward(String passward)
+	public void setPassword(String password)
 	{
-		this.passward = passward;
+		Password = password;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public String getRole()
+	{
+		return role;
+	}
+
+	public void setRole(String role)
+	{
+		this.role = role;
 	}
 
 }

@@ -23,25 +23,26 @@ public class FrontDeskLogin
 	@Autowired
 	com.sectong.mapper.Sys_usersMapper sys_usersMapper;
 
-	@RequestMapping(value = "/Login={jobIDorstudentID}&{passward}")
+	@RequestMapping(value = "/Login={jobIDorstudentID}&{Password}")
 	@ResponseBody
-	public ResponseEntity<Message> Login(@PathVariable String jobIDorstudentID, @PathVariable String passward, HttpSession httpSession)
+	public ResponseEntity<Message> Login(@PathVariable String jobIDorstudentID, @PathVariable String Password, HttpSession httpSession)
 	{
-		List<com.sectong.entity.Sys_users> usermanager = sys_usersMapper.selectByjobIDorstudentID(jobIDorstudentID);
+		List<com.sectong.entity.Sys_users> sys_users = sys_usersMapper.selectByjobIDorstudentID(jobIDorstudentID);
 
-		if (!usermanager.isEmpty())
+		if (!sys_users.isEmpty())
 		{
-			
-			System.out.println(usermanager.get(0).getId());
-			System.out.println(usermanager.get(0).getJobIDorstudentID());
-			System.out.println(usermanager.get(0).getPassward());
-			
-			if (usermanager.get(0).getPassward().equals(passward))
+			System.out.println(sys_users.get(0).getJobIDorstudentID());
+			System.out.println(sys_users.get(0).getPassword());
+			System.out.println(sys_users.get(0).getName());
+			System.out.println(sys_users.get(0).getRole());
+			System.out.println(Password);
+
+			if (sys_users.get(0).getPassword().equals(Password))
 			{
-				System.out.println(passward+"第二疵");
-				httpSession.setAttribute("usermanager", usermanager.get(0));
-				System.out.println(usermanager.get(0).getJobIDorstudentID()+"登陆成功！");
-				message.setMsg(1, "用户登录成功", usermanager);
+				System.out.println(Password + "第二疵");
+				httpSession.setAttribute("usermanager", sys_users.get(0));
+				System.out.println(sys_users.get(0).getJobIDorstudentID() + "登陆成功！");
+				message.setMsg(1, "用户登录成功", sys_users);
 			} else
 				message.setMsg(0, "用户登录失败");
 

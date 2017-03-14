@@ -7,6 +7,6 @@
 		FROM
 		v_sys_users
 		WHERE
-		v_sys_users.jobIDorstudentID = #{0}
+		v_sys_users.jobIDorstudentID= #{0}
 	</select>
 </mapper>

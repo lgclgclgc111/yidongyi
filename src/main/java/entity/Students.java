@@ -7,65 +7,74 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity  
-@Table(name = "students")  
-public class Students {
-	@Id  
-    @GeneratedValue(strategy = GenerationType.AUTO)  
-    private int id;  
-	
-	@Column(name = "name", nullable = false, length = 30)  
-    private String name; 
- 
-@Column(name = "numbers", nullable = false, length = 10)  
-    private int numbers;
+@Entity
+@Table(name = "students")
+public class Students
+{
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 
-@Column(name = "sex", nullable = false, length = 10)  
-private String sex;
+	@Column(name = "name", nullable = false, length = 30)
+	private String name;
 
-public int getId() {
-	return id;
-}
+	@Column(name = "numbers", nullable = false, length = 10)
+	private int numbers;
 
-public void setId(int id) {
-	this.id = id;
-}
+	@Column(name = "sex", nullable = false, length = 10)
+	private String sex;
 
-public String getName() {
-	return name;
-}
+	@Column(name = "classid", nullable = false, length = 10)
+	private String classid;
 
-public void setName(String name) {
-	this.name = name;
-}
+	public int getId()
+	{
+		return id;
+	}
 
-public int getNumbers() {
-	return numbers;
-}
+	public void setId(int id)
+	{
+		this.id = id;
+	}
 
-public void setNumbers(int numbers) {
-	this.numbers = numbers;
-}
+	public String getName()
+	{
+		return name;
+	}
 
-public String getSex() {
-	return sex;
-}
+	public void setName(String name)
+	{
+		this.name = name;
+	}
 
-public void setSex(String sex) {
-	this.sex = sex;
-}
+	public int getNumbers()
+	{
+		return numbers;
+	}
 
-public String getClassid() {
-	return classid;
-}
+	public void setNumbers(int numbers)
+	{
+		this.numbers = numbers;
+	}
 
-public void setClassid(String classid) {
-	this.classid = classid;
-}
+	public String getSex()
+	{
+		return sex;
+	}
 
-@Column(name = "classid", nullable = false, length = 10)  
-private String classid;
+	public void setSex(String sex)
+	{
+		this.sex = sex;
+	}
 
+	public String getClassid()
+	{
+		return classid;
+	}
 
+	public void setClassid(String classid)
+	{
+		this.classid = classid;
+	}
 
 }

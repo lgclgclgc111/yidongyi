@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface StudentLoginMapper
 {
-	List<com.sectong.entity.StudentLogin> selectByStudentID(Integer id);
+	List<com.sectong.entity.StudentLogin> selectByStudentID(String id);
 
 	List<com.sectong.entity.StudentLogin> StudentqueryAll();
 

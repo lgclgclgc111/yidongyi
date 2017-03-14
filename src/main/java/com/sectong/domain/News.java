@@ -16,7 +16,8 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
-public class News {
+public class News
+{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,58 +27,82 @@ public class News {
 	private String img;
 	private String content;
 	private Date datetime;
+	private String secondarytitle;
 	@ManyToOne
 	private User user;
 
-	public Long getId() {
+	public String getSecondarytitle()
+	{
+		return secondarytitle;
+	}
+
+	public void setSecondarytitle(String secondarytitle)
+	{
+		this.secondarytitle = secondarytitle;
+	}
+
+	public Long getId()
+	{
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Long id)
+	{
 		this.id = id;
 	}
 
-	public String getTitle() {
+	public String getTitle()
+	{
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(String title)
+	{
 		this.title = title;
 	}
 
-	public String getImg() {
+	public String getImg()
+	{
 		return img;
 	}
 
-	public void setImg(String img) {
+	public void setImg(String img)
+	{
 		this.img = img;
 	}
 
-	public String getContent() {
+	public String getContent()
+	{
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(String content)
+	{
 		this.content = content;
 	}
 
-	public Date getDatetime() {
+	public Date getDatetime()
+	{
 		return datetime;
 	}
 
-	public void setDatetime(Date datetime) {
+	public void setDatetime(Date datetime)
+	{
 		this.datetime = datetime;
 	}
 
-	public User getUser() {
+	public User getUser()
+	{
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(User user)
+	{
 		this.user = user;
 	}
 
-	public void createNews(String title, String img, String content, Date datetime, User user) {
+	public void createNews(String title, String img, String content, Date datetime, User user)
+	{
 		this.title = title;
 		this.img = img;
 		this.content = content;

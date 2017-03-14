@@ -43,8 +43,8 @@ public class LoginController
 		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
 		{
 			Sys_users sys_users = (Sys_users) httpSession.getAttribute("usermanager");
-			Integer integer = sys_users.getJobIDorstudentID();
-			return Teachermapper.selectByJobID(integer);
+			String JobIDorstudentID = sys_users.getJobIDorstudentID();
+			return Teachermapper.selectByJobID(JobIDorstudentID);
 		} else
 			return null;
 	}
@@ -75,7 +75,7 @@ public class LoginController
 		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
 		{
 			Sys_users sys_users = (Sys_users) httpSession.getAttribute("usermanager");
-			Integer integer = sys_users.getJobIDorstudentID();
+			String integer = sys_users.getJobIDorstudentID();
 			Integer weekday = com.sectong.communal.Communal.getWeekday();
 			return Teachermapper.selectByJobIDWeekday(integer, weekday);
 		} else
@@ -90,8 +90,8 @@ public class LoginController
 		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
 		{
 			Sys_users sys_users = (Sys_users) httpSession.getAttribute("usermanager");
-			Integer integer = sys_users.getJobIDorstudentID();
-			return Teachermapper.selectByJobIDWeekday(integer, WeekDay);
+			String JobIDorstudentID = sys_users.getJobIDorstudentID();
+			return Teachermapper.selectByJobIDWeekday(JobIDorstudentID, WeekDay);
 		} else
 			return null;
 	}
@@ -104,7 +104,7 @@ public class LoginController
 		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
 		{
 			Sys_users sys_users = (Sys_users) httpSession.getAttribute("usermanager");
-			Integer integer = sys_users.getJobIDorstudentID();
+			String integer = sys_users.getJobIDorstudentID();
 			return Teachermapper.selectByJobIDWeekdaySection(integer, WeekDay, Section);
 		} else
 			return null;
@@ -127,8 +127,8 @@ public class LoginController
 		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
 		{
 			Sys_users sys_users = (Sys_users) httpSession.getAttribute("usermanager");
-			Integer integer = sys_users.getJobIDorstudentID();
-			return Studentmapper.selectByStudentID(integer);
+			String JobIDorstudentID = sys_users.getJobIDorstudentID();
+			return Studentmapper.selectByStudentID(JobIDorstudentID);
 		} else
 			return null;
 	}
@@ -203,6 +203,23 @@ public class LoginController
 	@RequestMapping("/SelectStudentsInClassByCurriculumId/{CurriculumId}")
 	public List<com.sectong.entity.SelectStudentsInClassByCurriculumId> ByClassRoomId(@PathVariable Integer CurriculumId, HttpSession httpSession)
 			throws SQLException
+	{
+		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
+		{
+			return Teachermapper.SelectStudentsInClassByCurriculumId(CurriculumId);
+		} else
+			return null;
+	}
+
+	/*
+	 * 通过curriculumId验证二维码是否已经生成
+	 * 
+	 * 
+	 * 这个功能还没写完
+	 */
+	@RequestMapping("/isAlreadyHaveClassroom/{CurriculumId}")
+	public List<com.sectong.entity.SelectStudentsInClassByCurriculumId> isAlreadyHaveClassroom(@PathVariable Integer CurriculumId,
+			HttpSession httpSession) throws SQLException
 	{
 		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
 		{

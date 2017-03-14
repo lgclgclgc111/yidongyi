@@ -8,7 +8,8 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author jiekechoo
  *
  */
-public class NewsCreateForm {
+public class NewsCreateForm
+{
 
 	@NotEmpty
 	private String title;
@@ -19,28 +20,47 @@ public class NewsCreateForm {
 	@NotEmpty
 	private String img;
 
-	public String getTitle() {
+	@NotEmpty
+	private String secondarytitle;
+
+	public String getTitle()
+	{
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(String title)
+	{
 		this.title = title;
 	}
 
-	public String getContent() {
+	public String getContent()
+	{
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(String content)
+	{
 		this.content = content;
 	}
 
-	public String getImg() {
+	public String getImg()
+	{
 		return img;
 	}
 
-	public void setImg(String img) {
+	public void setImg(String img)
+	{
 		this.img = img;
+	}
+
+	public String getSecondarytitle()
+	{
+		return secondarytitle;
+	}
+
+	public void setSecondarytitle(String secondarytitle)
+	{
+		this.secondarytitle = secondarytitle;
 	}
 
 }

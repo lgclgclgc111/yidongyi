@@ -7,13 +7,13 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface TeacherLoginMapper
 {
-	List<com.sectong.entity.TeacherLogin> selectByJobID(Integer id);
+	List<com.sectong.entity.TeacherLogin> selectByJobID(String integer);
 
 	List<com.sectong.entity.TeacherLogin> TeacherqueryAll();
 
-	List<com.sectong.entity.TeacherLogin> selectByJobIDWeekday(Integer id, Integer Weekday);
+	List<com.sectong.entity.TeacherLogin> selectByJobIDWeekday(String integer, Integer Weekday);
 
-	List<com.sectong.entity.TeacherLogin> selectByJobIDWeekdaySection(Integer id, Integer Weekday, Integer Section);
+	List<com.sectong.entity.TeacherLogin> selectByJobIDWeekdaySection(String id, Integer Weekday, Integer Section);
 
 	List<com.sectong.entity.TeacherLogin> selectByCurriculumId(Integer CurriculumId);
 
