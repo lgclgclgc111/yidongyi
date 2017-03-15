@@ -31,15 +31,8 @@ public class FrontDeskLogin
 
 		if (!sys_users.isEmpty())
 		{
-			System.out.println(sys_users.get(0).getJobIDorstudentID());
-			System.out.println(sys_users.get(0).getPassword());
-			System.out.println(sys_users.get(0).getName());
-			System.out.println(sys_users.get(0).getRole());
-			System.out.println(Password);
-
 			if (sys_users.get(0).getPassword().equals(Password))
 			{
-				System.out.println(Password + "第二疵");
 				httpSession.setAttribute("usermanager", sys_users.get(0));
 				System.out.println(sys_users.get(0).getJobIDorstudentID() + "登陆成功！");
 				message.setMsg(1, "用户登录成功", sys_users);

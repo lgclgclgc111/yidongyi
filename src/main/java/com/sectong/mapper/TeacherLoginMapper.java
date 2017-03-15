@@ -19,4 +19,6 @@ public interface TeacherLoginMapper
 
 	List<com.sectong.entity.SelectStudentsInClassByCurriculumId> SelectStudentsInClassByCurriculumId(Integer ClassRoomId);
 
+	List<com.sectong.entity.IsAlreadyHaveClassroomResult> IsAlreadyHaveClassroomResult(Integer CurriculumId);
+
 }

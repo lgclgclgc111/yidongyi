@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sectong.entity.CinfoResult;
+import com.sectong.entity.IsAlreadyHaveClassroomResult;
 import com.sectong.entity.Sys_users;
 
 import entity.CIDResult;
@@ -215,15 +216,14 @@ public class LoginController
 	 * 通过curriculumId验证二维码是否已经生成
 	 * 
 	 * 
-	 * 这个功能还没写完
 	 */
 	@RequestMapping("/isAlreadyHaveClassroom/{CurriculumId}")
-	public List<com.sectong.entity.SelectStudentsInClassByCurriculumId> isAlreadyHaveClassroom(@PathVariable Integer CurriculumId,
-			HttpSession httpSession) throws SQLException
+	public List<com.sectong.entity.IsAlreadyHaveClassroomResult> isAlreadyHaveClassroom(@PathVariable Integer CurriculumId, HttpSession httpSession)
+			throws SQLException
 	{
-		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
+		if ((IsAlreadyHaveClassroomResult) httpSession.getAttribute("usermanager") != null)
 		{
-			return Teachermapper.SelectStudentsInClassByCurriculumId(CurriculumId);
+			return Teachermapper.IsAlreadyHaveClassroomResult(CurriculumId);
 		} else
 			return null;
 	}
