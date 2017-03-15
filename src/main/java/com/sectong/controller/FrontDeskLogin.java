@@ -25,14 +25,20 @@ public class FrontDeskLogin
 
 	@RequestMapping(value = "/Login={jobIDorstudentID}&{passward}")
 	@ResponseBody
-	public ResponseEntity<Message> Login(@PathVariable Integer jobIDorstudentID, @PathVariable String passward, HttpSession httpSession)
+	public ResponseEntity<Message> Login(@PathVariable String jobIDorstudentID, @PathVariable String passward, HttpSession httpSession)
 	{
 		List<com.sectong.entity.Sys_users> usermanager = sys_usersMapper.selectByjobIDorstudentID(jobIDorstudentID);
 
 		if (!usermanager.isEmpty())
 		{
+			
+			System.out.println(usermanager.get(0).getId());
+			System.out.println(usermanager.get(0).getJobIDorstudentID());
+			System.out.println(usermanager.get(0).getPassward());
+			
 			if (usermanager.get(0).getPassward().equals(passward))
 			{
+				System.out.println(passward+"第二疵");
 				httpSession.setAttribute("usermanager", usermanager.get(0));
 				System.out.println(usermanager.get(0).getJobIDorstudentID()+"登陆成功！");
 				message.setMsg(1, "用户登录成功", usermanager);

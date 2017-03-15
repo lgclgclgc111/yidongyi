@@ -13,20 +13,20 @@ public class Sys_users
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private int id;
 
 	@Column(name = "jobIDorstudentID", nullable = false, length = 30)
 	private String jobIDorstudentID;
 
 	@Column(name = "passward", nullable = false, length = 10)
-	private int passward;
+	private String passward;
 
-	public long getId()
+	public int getId()
 	{
 		return id;
 	}
 
-	public void setId(long id)
+	public void setId(int id)
 	{
 		this.id = id;
 	}
@@ -41,12 +41,12 @@ public class Sys_users
 		this.jobIDorstudentID = jobIDorstudentID;
 	}
 
-	public int getPassward()
+	public String getPassward()
 	{
 		return passward;
 	}
 
-	public void setPassward(int passward)
+	public void setPassward(String passward)
 	{
 		this.passward = passward;
 	}
