@@ -46,13 +46,7 @@
 
 	<select id="selectByCurriculumId" resultType="com.sectong.entity.TeacherLogin">
 		SELECT
-		v_curriculum.TeacherName,
-		v_curriculum.WeekDay,
-		v_curriculum.Section,
-		v_curriculum.ClassName,
-		v_curriculum.CourseName,
-		v_curriculum.FacultyName,
-		v_curriculum.StratTime
+		*
 		FROM
 		v_curriculum
 		WHERE

@@ -37,6 +37,9 @@ public class LoginController
 	 * Teacher区域
 	 */
 
+	/*
+	 * 查出登录账户的所有课程
+	 */
 	@RequestMapping(value = "/selectByJobID")
 	@ResponseBody
 	public List<com.sectong.entity.TeacherLogin> selectByJobID(HttpSession httpSession)
@@ -51,6 +54,9 @@ public class LoginController
 	}
 
 	// 返回一个学生名字列表
+	/*
+	 * 查出某个班所有学生的名字
+	 */
 	@RequestMapping(value = "/selectByClassName/{ClassName}")
 	@ResponseBody
 	public List<com.sectong.entity.StudentName> selectByClassName(@PathVariable String ClassName, HttpSession httpSession)
@@ -62,6 +68,9 @@ public class LoginController
 			return null;
 	}
 
+	/*
+	 * 查出所有老师的课程安排
+	 */
 	@RequestMapping(value = "/TeacherqueryAll")
 	@ResponseBody
 	public List<com.sectong.entity.TeacherLogin> TeacherqueryAll()
@@ -69,6 +78,9 @@ public class LoginController
 		return Teachermapper.TeacherqueryAll();
 	}
 
+	/*
+	 * 查出登录帐号今天的课程
+	 */
 	@RequestMapping(value = "/selectByJobID_Today")
 	@ResponseBody
 	public List<com.sectong.entity.TeacherLogin> selectByJobID_Today(HttpSession httpSession)
@@ -84,6 +96,9 @@ public class LoginController
 
 	}
 
+	/*
+	 * 查出登录帐号今一个星期里某一天的课程
+	 */
 	@RequestMapping(value = "/selectByJobID_Weekday/{WeekDay}")
 	@ResponseBody
 	public List<com.sectong.entity.TeacherLogin> selectByJobID_Weekday(@PathVariable Integer WeekDay, HttpSession httpSession)
@@ -97,6 +112,9 @@ public class LoginController
 			return null;
 	}
 
+	/*
+	 * 查出登录帐号今一个星期里某一天某一个节次的课程 http://123.56.223.31:8080/Controller/selectByJobID_Weekday_Section/5&2
+	 */
 	@RequestMapping(value = "/selectByJobID_Weekday_Section/{WeekDay}&{Section}")
 	@ResponseBody
 	public List<com.sectong.entity.TeacherLogin> selectByJobIDWeekdaySection(@PathVariable Integer WeekDay, @PathVariable Integer Section,
@@ -111,6 +129,9 @@ public class LoginController
 			return null;
 	}
 
+	/*
+	 * 查出某一节课的所有信息
+	 */
 	@RequestMapping(value = "/selectByCurriculumId/{CurriculumId}")
 	@ResponseBody
 	public List<com.sectong.entity.TeacherLogin> selectByCurriculumId(@PathVariable Integer CurriculumId)
@@ -214,7 +235,6 @@ public class LoginController
 
 	/*
 	 * 通过curriculumId验证二维码是否已经生成
-	 * 
 	 * 
 	 */
 	@RequestMapping("/isAlreadyHaveClassroom/{CurriculumId}")
