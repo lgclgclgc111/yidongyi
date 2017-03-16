@@ -142,6 +142,7 @@ public class LoginController
 	/*
 	 * Student区域
 	 */
+
 	@RequestMapping(value = "/selectByStudentID")
 	@ResponseBody
 	public List<com.sectong.entity.StudentLogin> selectByStudentID(HttpSession httpSession)
@@ -155,6 +156,9 @@ public class LoginController
 			return null;
 	}
 
+	/*
+	 * 查出所有学生的信息
+	 */
 	@RequestMapping(value = "/StudentqueryAll")
 	@ResponseBody
 	public List<com.sectong.entity.StudentLogin> StudentqueryAll()
@@ -163,8 +167,7 @@ public class LoginController
 	}
 
 	/*
-	 * 存储过程相关区域
-	 * 
+	 * 存储过程相关区域 CreateClassRoomByCurriculumId 用课程ID创建课堂
 	 */
 	@RequestMapping("/CreateClassRoomByCurriculumId/{CurriculumId}")
 	public CIDResult test(@PathVariable Integer CurriculumId) throws SQLException
@@ -189,6 +192,9 @@ public class LoginController
 		return cidResult;
 	}
 
+	/*
+	 * 扫码生成考勤记录
+	 */
 	@RequestMapping("/CreateAttendanceByQrcodeInfo/{QrcodeInfo}/{StudentNumber}")
 	public CinfoResult test(@PathVariable String QrcodeInfo, @PathVariable Integer StudentNumber) throws SQLException
 	{

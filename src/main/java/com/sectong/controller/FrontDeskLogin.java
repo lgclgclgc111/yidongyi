@@ -23,6 +23,9 @@ public class FrontDeskLogin
 	@Autowired
 	com.sectong.mapper.Sys_usersMapper sys_usersMapper;
 
+	/*
+	 * 验证登录密码 学生老师通用
+	 */
 	@RequestMapping(value = "/Login={jobIDorstudentID}&{Password}")
 	@ResponseBody
 	public ResponseEntity<Message> Login(@PathVariable String jobIDorstudentID, @PathVariable String Password, HttpSession httpSession)
