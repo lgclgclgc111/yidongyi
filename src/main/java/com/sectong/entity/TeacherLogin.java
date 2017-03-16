@@ -6,7 +6,7 @@ import java.sql.Time;
 public class TeacherLogin
 {
 	private Integer CurriculumId;
-	private Integer TeacherJobID;
+	private String TeacherJobID;
 	private String TeacherName;
 	private Integer CourseID;
 	private Integer WeekDay;
@@ -30,12 +30,12 @@ public class TeacherLogin
 		CurriculumId = curriculumId;
 	}
 
-	public Integer getTeacherJobID()
+	public String getTeacherJobID()
 	{
 		return TeacherJobID;
 	}
 
-	public void setTeacherJobID(Integer teacherJobID)
+	public void setTeacherJobID(String teacherJobID)
 	{
 		TeacherJobID = teacherJobID;
 	}
