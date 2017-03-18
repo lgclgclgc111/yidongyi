@@ -77,11 +77,8 @@
 		C.ClassRoomId,c.CurriculumId,c.QrcodeInfo
 		FROM yw_classroom c
 		WHERE
-		date_format(now(),
-		'%Y%m%d%H%i%s') BETWEEN date_format(c.StratTime,
-		'%Y%m%d%H%i%s')
-		AND
-		date_format(c.EndTime, '%Y%m%d%H%i%s') AND
-		c.CurriculumId=#{0}
+		date_format(now(),'%Y%m%d') BETWEEN date_format(c.StratTime,'%Y%m%d')
+		AND date_format(c.EndTime, '%Y%m%d') AND c.CurriculumId=#{0}
+
 	</select>
 </mapper>
