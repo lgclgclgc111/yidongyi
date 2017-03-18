@@ -5,7 +5,7 @@ import java.sql.Time;
 public class SelectStudentsInClassByCurriculumIdAndClassRoomId
 {
 	private String StudentNumber;
-	private String ClassName;
+	private String StudentName;
 	private String Sex;
 	private Time RecordDateTime;
 	private Integer ClassRoomId;
@@ -31,14 +31,14 @@ public class SelectStudentsInClassByCurriculumIdAndClassRoomId
 		StudentNumber = studentNumber;
 	}
 
-	public String getClassName()
+	public String getStudentName()
 	{
-		return ClassName;
+		return StudentName;
 	}
 
-	public void setClassName(String className)
+	public void setStudentName(String studentName)
 	{
-		ClassName = className;
+		StudentName = studentName;
 	}
 
 	public String getSex()
