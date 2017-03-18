@@ -2,8 +2,19 @@ package com.sectong.entity;
 
 public class IsAlreadyHaveClassroomResult
 {
+	private Integer ClassRoomId;
 	private Integer CurriculumId;
 	private String QrcodeInfo;
+
+	public Integer getClassRoomId()
+	{
+		return ClassRoomId;
+	}
+
+	public void setClassRoomId(Integer classRoomId)
+	{
+		ClassRoomId = classRoomId;
+	}
 
 	public Integer getCurriculumId()
 	{

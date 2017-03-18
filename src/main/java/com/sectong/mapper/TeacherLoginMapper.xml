@@ -14,15 +14,21 @@
 	</select>
 
 	<select id="selectByJobIDWeekday" resultType="com.sectong.entity.TeacherLogin">
-		SELECT * FROM v_curriculum vc
+		SELECT * FROM
+		v_curriculum vc
 		LEFT JOIN
-		(SELECT c.CurriculumId CurriculumId1 ,c.QrcodeInfo
+		(SELECT c.CurriculumId CurriculumId1
+		,c.QrcodeInfo
 		FROM yw_classroom c
-		WHERE date_format(now(), '%Y%m%d%H%i%s') BETWEEN date_format(c.StratTime,
-		'%Y%m%d%H%i%s')AND date_format(c.EndTime, '%Y%m%d%H%i%s')
+		WHERE date_format(now(),
+		'%Y%m%d%H%i%s') BETWEEN date_format(c.StratTime,
+		'%Y%m%d%H%i%s')AND
+		date_format(c.EndTime, '%Y%m%d%H%i%s')
 		) as v
-		on vc.CurriculumId=v.CurriculumId1
-		WHERE vc.TeacherJobID =#{0} and vc.WeekDay =#{1}
+		on
+		vc.CurriculumId=v.CurriculumId1
+		WHERE vc.TeacherJobID =#{0} and
+		vc.WeekDay =#{1}
 	</select>
 
 	<select id="selectByJobIDWeekdaySection" resultType="com.sectong.entity.TeacherLogin">
@@ -68,12 +74,14 @@
 
 	<select id="IsAlreadyHaveClassroomResult" resultType="com.sectong.entity.IsAlreadyHaveClassroomResult">
 		SELECT
-		c.CurriculumId,c.QrcodeInfo
+		C.ClassRoomId,c.CurriculumId,c.QrcodeInfo
 		FROM yw_classroom c
-		WHERE date_format(now(),
+		WHERE
+		date_format(now(),
 		'%Y%m%d%H%i%s') BETWEEN date_format(c.StratTime,
 		'%Y%m%d%H%i%s')
 		AND
-		date_format(c.EndTime, '%Y%m%d%H%i%s') AND c.CurriculumId=#{0}
+		date_format(c.EndTime, '%Y%m%d%H%i%s') AND
+		c.CurriculumId=#{0}
 	</select>
 </mapper>

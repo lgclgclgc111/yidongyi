@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sectong.entity.CinfoResult;
-import com.sectong.entity.IsAlreadyHaveClassroomResult;
 import com.sectong.entity.Sys_users;
 
 import entity.CIDResult;
@@ -247,7 +246,7 @@ public class LoginController
 	public List<com.sectong.entity.IsAlreadyHaveClassroomResult> isAlreadyHaveClassroom(@PathVariable Integer CurriculumId, HttpSession httpSession)
 			throws SQLException
 	{
-		if ((IsAlreadyHaveClassroomResult) httpSession.getAttribute("usermanager") != null)
+		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
 		{
 			return Teachermapper.IsAlreadyHaveClassroomResult(CurriculumId);
 		} else
