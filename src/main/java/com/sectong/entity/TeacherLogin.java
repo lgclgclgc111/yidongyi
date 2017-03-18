@@ -19,6 +19,28 @@ public class TeacherLogin
 	private String FacultyName;
 	private Time StratTime;
 	private Time EndTime;
+	private String CurriculumId1;
+	private String QrcodeInfo;
+
+	public String getCurriculumId1()
+	{
+		return CurriculumId1;
+	}
+
+	public void setCurriculumId1(String curriculumId1)
+	{
+		CurriculumId1 = curriculumId1;
+	}
+
+	public String getQrcodeInfo()
+	{
+		return QrcodeInfo;
+	}
+
+	public void setQrcodeInfo(String qrcodeInfo)
+	{
+		QrcodeInfo = qrcodeInfo;
+	}
 
 	public Integer getCurriculumId()
 	{
