@@ -1,13 +1,11 @@
 package com.sectong.entity;
 
-import java.sql.Time;
-
 public class SelectStudentsInClassByCurriculumIdAndClassRoomId
 {
 	private String StudentNumber;
 	private String StudentName;
 	private String Sex;
-	private Time RecordDateTime;
+	private String RecordDateTime;
 	private Integer ClassRoomId;
 	private Integer CurriculumId;
 
@@ -51,12 +49,12 @@ public class SelectStudentsInClassByCurriculumIdAndClassRoomId
 		Sex = sex;
 	}
 
-	public Time getRecordDateTime()
+	public String getRecordDateTime()
 	{
 		return RecordDateTime;
 	}
 
-	public void setRecordDateTime(Time recordDateTime)
+	public void setRecordDateTime(String recordDateTime)
 	{
 		RecordDateTime = recordDateTime;
 	}
