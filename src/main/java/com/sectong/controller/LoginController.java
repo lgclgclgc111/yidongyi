@@ -225,15 +225,15 @@ public class LoginController
 	}
 
 	/*
-	 * 通过ClassRoomId查询这个班级的学生哪个在班里哪个签到了
+	 * 通过CurriculumId和ClassRoomId查询这个班级的学生哪个在班里哪个签到了
 	 */
-	@RequestMapping("/SelectStudentsInClassByCurriculumId/{CurriculumId}")
-	public List<com.sectong.entity.SelectStudentsInClassByCurriculumId> ByClassRoomId(@PathVariable Integer CurriculumId, HttpSession httpSession)
-			throws SQLException
+	@RequestMapping("/SelectStudentsInClassByCurriculumIdAndClassRoomId/{CurriculumId}/{ClassRoomId}")
+	public List<com.sectong.entity.SelectStudentsInClassByCurriculumIdAndClassRoomId> ByClassRoomId(@PathVariable Integer CurriculumId,
+			@PathVariable Integer ClassRoomId, HttpSession httpSession) throws SQLException
 	{
 		if ((Sys_users) httpSession.getAttribute("usermanager") != null)
 		{
-			return Teachermapper.SelectStudentsInClassByCurriculumId(CurriculumId);
+			return Teachermapper.SelectStudentsInClassByCurriculumIdAndClassRoomId(CurriculumId, ClassRoomId);
 		} else
 			return null;
 	}

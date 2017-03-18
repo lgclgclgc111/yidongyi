@@ -53,22 +53,15 @@
 	</select>
 
 
-	<select id="SelectStudentsInClassByCurriculumId"
-		resultType="com.sectong.entity.SelectStudentsInClassByCurriculumId">
-		SELECT DISTINCT
-		v_students_att.StudentName,
-		v_students_att.StudentNumber,
-		v_students_att.ClassName,
-		v_students_att.ClassRoomId,
-		yw_classroom.CurriculumId
-		FROM
-		yw_classroom ,
-		v_students_att
-		WHERE
-		yw_classroom.CurriculumId =
-		v_students_att.CurriculumId AND
-		yw_classroom.CurriculumId = #{0} OR
-		v_students_att.ClassRoomId IS NULL
+	<select id="SelectStudentsInClassByCurriculumIdAndClassRoomId"
+		resultType="com.sectong.entity.SelectStudentsInClassByCurriculumIdAndClassRoomId">
+		SELECT V.*,A.RecordDateTime,a.ClassRoomId,a.CurriculumId
+		FROM (SELECT S.StudentNumber,S.StudentName,S.Sex FROM yw_students S
+		,yw_curriculum c
+		WHERE S.ClassID = c.CourseID AND c.curriculumId=#{0} )
+		V
+		LEFT JOIN yw_attendance A ON A.StudentNumber=V.StudentNumber AND
+		A.ClassRoomId=#{1}
 	</select>
 
 	<select id="IsAlreadyHaveClassroomResult" resultType="com.sectong.entity.IsAlreadyHaveClassroomResult">
