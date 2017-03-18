@@ -225,7 +225,7 @@ public class LoginController
 	}
 
 	/*
-	 * 通过CurriculumId和ClassRoomId查询这个班级的学生哪个在班里哪个签到了
+	 * 通过CurriculumId和ClassRoomId查询这个班级的签到情况
 	 */
 	@RequestMapping("/SelectStudentsInClassByCurriculumIdAndClassRoomId/{CurriculumId}/{ClassRoomId}")
 	public List<com.sectong.entity.SelectStudentsInClassByCurriculumIdAndClassRoomId> ByClassRoomId(@PathVariable Integer CurriculumId,
