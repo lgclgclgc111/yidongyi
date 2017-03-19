@@ -68,7 +68,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		{
 			http.authorizeRequests()
 					.antMatchers("/api/create", "/", "/assets/**", "/plugins/**", "/static/**", "/bootstrap/**", "/v2/api-docs/**",
-							"/swagger-ui.html**", "/webjars/**", "/swagger-resources/**", "/api/**", "/FrontDesk/**", "/Controller/**") // 免认证目录
+							"/swagger-ui.html**", "/webjars/**", "/swagger-resources/**", "/api/**", "/FrontDesk/**", "/Controller/**",
+							"/CheckVersion/**", "/APPCheckVersionAPP/**", "/AppUpdateFile/**", "/update/**") // 免认证目录
 					.permitAll().antMatchers("/admin/**").hasRole("ADMIN")// ADMIN角色可以访问/admin目录
 					.anyRequest().authenticated().and().formLogin().loginPage("/login")// 自定义登录页为/login
 					.permitAll().and().logout().permitAll().and().csrf().disable();

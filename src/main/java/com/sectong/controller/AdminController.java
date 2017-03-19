@@ -50,12 +50,6 @@ public class AdminController
 		model.addAttribute("userscount", userRepository.count());
 		model.addAttribute("newscount", newsRepository.count());
 
-		//model.addAttribute("CPUinf", com.sectong.communal.Communal.getCPUinf());
-		//model.addAttribute("Meminf", com.sectong.communal.Communal.getMeminf());
-		//model.addAttribute("diskinf", com.sectong.communal.Communal.getdiskinf());
-
-		//model.addAttribute("TimeNow", com.sectong.communal.Communal.getTime());
-
 		return "admin/index";
 	}
 
