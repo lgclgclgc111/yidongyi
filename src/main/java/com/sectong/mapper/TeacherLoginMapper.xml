@@ -55,7 +55,7 @@
 
 	<select id="SelectStudentsInClassByCurriculumIdAndClassRoomId"
 		resultType="com.sectong.entity.SelectStudentsInClassByCurriculumIdAndClassRoomId">
-		SELECT V.*,A.RecordDateTime,a.ClassRoomId,a.CurriculumId
+		SELECT A.ID,V.*,A.RecordDateTime,a.ClassRoomId,a.CurriculumId
 		FROM (SELECT S.StudentNumber,S.StudentName,S.Sex FROM yw_students S
 		,yw_curriculum c
 		WHERE S.ClassID = c.CourseID AND c.curriculumId=#{0} )

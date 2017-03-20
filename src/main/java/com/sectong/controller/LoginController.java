@@ -192,6 +192,26 @@ public class LoginController
 	}
 
 	/*
+	 * 存储过程相关区域 CreateClassRoomByCurriculumId 用课程ID创建课堂
+	 */
+	@RequestMapping("/ManualMarkingAttendanceByClassRoomIdAndStudentNumberAndStatus/{ClassRoomId}/{StudentNumber}/{Status}")
+	public String Marking(@PathVariable Integer ClassRoomId, @PathVariable String StudentNumber, @PathVariable String Status) throws SQLException
+	{
+		DataSource dataSource = jdbcTemplate.getDataSource();
+		Connection conn = null;
+		conn = dataSource.getConnection();
+		CallableStatement cs = conn.prepareCall("{CALL CreateAttendanceByState(?,?,?,?)}");
+		cs.setInt(1, ClassRoomId);
+		cs.setString(2, StudentNumber);
+		cs.setString(3, Status);
+		cs.registerOutParameter(4, Types.INTEGER);
+		cs.execute();
+
+		// 把结果作为一个string输出
+		return String.valueOf(cs.getInt(4));
+	}
+
+	/*
 	 * 扫码生成考勤记录
 	 */
 	@RequestMapping("/CreateAttendanceByQrcodeInfo/{QrcodeInfo}/{StudentNumber}")

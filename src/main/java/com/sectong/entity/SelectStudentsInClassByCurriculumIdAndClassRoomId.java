@@ -2,6 +2,7 @@ package com.sectong.entity;
 
 public class SelectStudentsInClassByCurriculumIdAndClassRoomId
 {
+	private Integer ID;
 	private String StudentNumber;
 	private String StudentName;
 	private String Sex;
