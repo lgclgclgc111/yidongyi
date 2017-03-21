@@ -215,7 +215,7 @@ public class LoginController
 	 * 扫码生成考勤记录
 	 */
 	@RequestMapping("/CreateAttendanceByQrcodeInfo/{QrcodeInfo}/{StudentNumber}")
-	public CinfoResult test(@PathVariable String QrcodeInfo, @PathVariable Integer StudentNumber) throws SQLException
+	public CinfoResult test(@PathVariable String QrcodeInfo, @PathVariable String StudentNumber) throws SQLException
 	{
 		CinfoResult cinfoResult = new CinfoResult();
 		DataSource dataSource = jdbcTemplate.getDataSource();
@@ -223,7 +223,7 @@ public class LoginController
 		conn = dataSource.getConnection();
 		CallableStatement cs = conn.prepareCall("{CALL CreateAttendanceByQrcodeInfo(?,?,?)}");
 		cs.setString(1, QrcodeInfo);
-		cs.setInt(2, StudentNumber);
+		cs.setString(2, StudentNumber);
 		cs.registerOutParameter(3, Types.INTEGER);
 		cs.execute();
 
