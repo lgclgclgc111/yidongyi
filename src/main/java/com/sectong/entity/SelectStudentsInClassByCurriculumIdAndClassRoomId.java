@@ -9,6 +9,27 @@ public class SelectStudentsInClassByCurriculumIdAndClassRoomId
 	private String RecordDateTime;
 	private Integer ClassRoomId;
 	private Integer CurriculumId;
+	private String Status;
+
+	public Integer getID()
+	{
+		return ID;
+	}
+
+	public void setID(Integer iD)
+	{
+		ID = iD;
+	}
+
+	public String getStatus()
+	{
+		return Status;
+	}
+
+	public void setStatus(String status)
+	{
+		Status = status;
+	}
 
 	public Integer getCurriculumId()
 	{
