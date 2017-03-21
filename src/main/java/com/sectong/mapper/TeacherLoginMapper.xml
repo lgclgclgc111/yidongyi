@@ -58,9 +58,9 @@
 		SELECT
 		A.ID,V.*,A.RecordDateTime,a.ClassRoomId,a.CurriculumId,A.Status
 		FROM
-		(SELECT S.StudentNumber,S.StudentName,S.Sex FROM yw_students S
+		(SELECT S.StudentNumber,S.StudentName,S.Sex FROM v_students S
 		,yw_curriculum c
-		WHERE S.ClassID = c.CourseID AND c.curriculumId=#{0} )
+		WHERE S.ClassName = c.ClassName AND c.curriculumId=#{0})
 		V
 		LEFT JOIN yw_attendance A ON A.StudentNumber=V.StudentNumber AND
 		A.ClassRoomId=#{1}
