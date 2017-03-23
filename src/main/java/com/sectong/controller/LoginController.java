@@ -227,6 +227,7 @@ public class LoginController
 		cs.registerOutParameter(3, Types.INTEGER);
 		cs.execute();
 
+		// 呵呵呵
 		// 把结果放进一个实体里面,直接输出为Json格式
 		cinfoResult.setRtn(cs.getInt(3));
 		return cinfoResult;
