@@ -6,7 +6,7 @@
 	<groupId>com.sectong</groupId>
 	<artifactId>yidongyi</artifactId>
 	<version>0.1.0-RELEASE</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>yidongyi</name>
 	<description>移动易后台</description>
@@ -93,6 +93,13 @@
 			<groupId>com.jfinal</groupId>
 			<artifactId>jfinal</artifactId>
 			<version>2.2</version>
+		</dependency>
+
+		<!-- 打war包时加入此项， 告诉spring-boot tomcat相关jar包用外部的，不要打进去 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 
