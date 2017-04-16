@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sectong.entity.CinfoResult;
+import com.sectong.entity.NewDetails;
 import com.sectong.entity.Sys_users;
 
 import entity.CIDResult;
@@ -274,4 +275,13 @@ public class LoginController
 			return null;
 	}
 
+	/*
+	 * 通过ID查询新闻详情
+	 * 
+	 */
+	@RequestMapping("/SqlNewDetails/{id}")
+	public List<NewDetails> SqlNewDetails(@PathVariable Integer id) throws SQLException
+	{
+		return Teachermapper.SqlNewDetails(id);
+	}
 }

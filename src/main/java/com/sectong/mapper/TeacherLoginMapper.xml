@@ -60,9 +60,11 @@
 		FROM
 		(SELECT S.StudentNumber,S.StudentName,S.Sex FROM v_students S
 		,yw_curriculum c
-		WHERE S.ClassName = c.ClassName AND c.curriculumId=#{0})
+		WHERE S.ClassName = c.ClassName AND
+		c.curriculumId=#{0})
 		V
-		LEFT JOIN yw_attendance A ON A.StudentNumber=V.StudentNumber AND
+		LEFT JOIN yw_attendance A ON
+		A.StudentNumber=V.StudentNumber AND
 		A.ClassRoomId=#{1}
 	</select>
 
@@ -78,4 +80,21 @@
 		date_format(c.EndTime, '%Y%m%d') AND
 		c.CurriculumId=#{0}
 	</select>
+
+	<select id="SqlNewDetails" resultType="com.sectong.entity.NewDetails">
+		SELECT
+		news.id,
+		news.content,
+		news.datetime,
+		news.img,
+		news.title,
+		news.user_id,
+		news.secondarytitle,
+		news.readerlevel
+		FROM
+		news
+		WHERE
+		news.id = #{0}
+	</select>
+
 </mapper>

@@ -22,4 +22,6 @@ public interface TeacherLoginMapper
 
 	List<com.sectong.entity.IsAlreadyHaveClassroomResult> IsAlreadyHaveClassroomResult(Integer CurriculumId);
 
+	List<com.sectong.entity.NewDetails> SqlNewDetails(Integer id);
+
 }

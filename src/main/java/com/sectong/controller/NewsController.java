@@ -25,7 +25,8 @@ import com.sectong.service.NewsService;
 
 @RestController
 @RequestMapping(value = "/api/v1", name = "新闻API")
-public class NewsController {
+public class NewsController
+{
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(NewsController.class);
 	private Message message = new Message();
@@ -33,18 +34,22 @@ public class NewsController {
 	private NewsService newsService;
 
 	@Autowired
-	public NewsController(NewsService newsService) {
+	public NewsController(NewsService newsService)
+	{
 		this.newsService = newsService;
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "i/news/create", method = RequestMethod.POST)
-	public ResponseEntity<Message> createNews(@Valid @RequestBody NewsCreateForm form, BindingResult bindingResult) {
-		try {
+	public ResponseEntity<Message> createNews(@Valid @RequestBody NewsCreateForm form, BindingResult bindingResult)
+	{
+		try
+		{
 			News news = newsService.create(form);
 			message.setMsg(1, "新闻创建成功", news);
 			return new ResponseEntity<Message>(message, HttpStatus.OK);
-		} catch (DataIntegrityViolationException e) {
+		} catch (DataIntegrityViolationException e)
+		{
 			LOGGER.warn("create news error", e);
 			message.setMsg(0, "创建新闻失败");
 			return new ResponseEntity<Message>(message, HttpStatus.OK);
@@ -52,10 +57,10 @@ public class NewsController {
 	}
 
 	@RequestMapping(value = "news/getNewsList", method = RequestMethod.GET)
-	public ResponseEntity<Message> getNewsList(@RequestParam(defaultValue = "0") Long startid, Pageable p) {
+	public ResponseEntity<Message> getNewsList(@RequestParam(defaultValue = "0") Long startid, Pageable p)
+	{
 		Page<News> news = newsService.getNewsList(startid, p);
 		message.setMsg(1, "获取新闻列表成功", news);
 		return new ResponseEntity<Message>(message, HttpStatus.OK);
 	}
-
 }
